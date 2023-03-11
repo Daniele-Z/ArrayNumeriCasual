@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Generatore di numeri casuali</title>
+</head>
+<body>
+	<h1>Generatore di numeri casuali</h1>
+	<p>Questa pagina genera 20 numeri casuali diversi tra 1 e 50.</p>
+	<p>I numeri generati sono:</p>
+	<ul id="numeriGenerati"></ul>
+
+	<script>
+		// Crea un array vuoto per i numeri generati
+		var numeriGenerati = [];
+
+		// Ripeti finché non hai generato 20 numeri diversi
+		while (numeriGenerati.length < 20) {
+			// Genera un numero casuale tra 1 e 50
+			var numeroCasuale = Math.floor(Math.random() * 50) + 1;
+
+			// Se il numero non è già presente nell'array, aggiungilo
+			if (numeriGenerati.indexOf(numeroCasuale) === -1) {
+				numeriGenerati.push(numeroCasuale);
+			}
+		}
+
+		// Stampa i numeri generati nella lista HTML
+		var listaNumeriGenerati = document.getElementById("numeriGenerati");
+		for (var i = 0; i < numeriGenerati.length; i++) {
+			var elementoLista = document.createElement("li");
+			var testoElementoLista = document.createTextNode(numeriGenerati[i]);
+			elementoLista.appendChild(testoElementoLista);
+			listaNumeriGenerati.appendChild(elementoLista);
+		}
+	</script>
+</body>
+</html>
